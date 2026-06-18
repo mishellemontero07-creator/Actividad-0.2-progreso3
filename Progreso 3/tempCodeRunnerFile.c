@@ -1,0 +1,1 @@
+void mostrarAlumno(Alumno *a)

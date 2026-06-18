@@ -8,14 +8,14 @@
 
 void mostrarAlumno();  //1. Creamos el prototipo de la funcion
 
-struct Direccion{
+struct Direccion{      
     char callePrincipal [50];
     int numeroCasa;
     char calleSecundaria[50];
 
 };
 
-
+//Esta estructura se llama anidamiento de estructuras
 typedef struct {   //typedef: me permite utilizar el nombre de ese tipo de dato sin necesidad de usar la palabra struct
     char nombre[50];   
     struct Direccion direccion;
@@ -25,7 +25,8 @@ typedef struct {   //typedef: me permite utilizar el nombre de ese tipo de dato 
 
 int main(int argc, char const *argv[])
 {
-    Alumno a1;  // ya no necesito poner aqui la palabra "struct", solo hago ese pequeño cambio
+    Alumno a1;  /* ya no necesito poner aqui la palabra "struct", solo hago ese pequeño 
+    cambio, usando el typedef me permite no tener que repetir siempre struct Alumno*/
     
     strcpy(a1.direccion.callePrincipal ,  "San Carlos");
     a1.direccion.numeroCasa = 123;
