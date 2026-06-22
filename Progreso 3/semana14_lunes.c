@@ -46,8 +46,9 @@ int main(int argc, char const *argv[])
     clase[1].direccion.numeroCasa = 563;
     clase[1].edad = 26; 
 
-    mostrarAlumno(clase);  
-    guardarArchivo(Alumno); 
+    //mostrarAlumno(clase);  
+    guardarArchivo( Alumno, 2 ); 
+    leerArchivo()
     return 0;
 }
 
@@ -63,18 +64,49 @@ for ( int i = 0; i < 2; i++)
     printf("%s\n\n",  a[i].direccion.calleSecundaria);  
 }
 
-void guardarArchivo(Alumno *a);
-    FILE *archivo = fopen("alumnos.txt", "w");  //primer paso, usamos la palabra reservada FILE 
+void guardarArchivo(Alumno *a){
+
+
+
+    FILE *archivo = fopen("alumnos.txt", "w");  //primer paso, usamos la palabra reservada FILE   //"alumnos.rxr: es el nombrede nuestro archivo plano  ; "w" es el modo de acceso
     for(int i=0;  i < 2; i++)
     {
 
         fprintf(archivo, "Nombre: %s\n" , a[i].nombre );//a[i].nombre es el valor 
-        
         fprintf(archivo, "Edad: %d\n" , a[i].edad );  
-        fprintf("Direccion:  %s %d %s", a[i].direccion.callePrincipal, a[i].direccion.numeroCasa, a[i].direccion.calleSecundaria );
+        fprintf(archivo, "Direccion:  %s %d %s\n", 
+            a[i].direccion.callePrincipal,
+            a[i].direccion.numeroCasa, 
+            a[i].direccion.calleSecundaria );
 
-    
+         fprintf(archivo, ".......................\n");   
     }
     
     fclose(archivo); 
+    printf("datos guardados en alumnos.txt\n");
+
 }
+
+
+void leerArchivo()
+{
+    FILE *archivo = fopen("alumnos.txt", "r");
+
+
+    if (archivo ==NULL){
+        printf("No se puede abrir el archivo");
+        return;
+
+    }
+
+    char linea [150]; //tengo que crear mi buffer temporal, //buffer espacio temporal, fgets necesita tres parámetros 1. nombre del arreglo, 2.tamaño, 3. de donde saca los valores
+
+    while (fgets (linea, 150, archivo) != NULL) {
+    printf("%s", linea);
+    } 
+    
+
+    fclose(archivo);
+
+}
+/*fgets: nos permite leer el archivo línea por línea, el fscanf ns permite */
