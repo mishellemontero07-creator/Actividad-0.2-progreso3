@@ -52,7 +52,7 @@ int main(int argc, char const *argv[])
 
     //mostrarAlumno(clase);  
     guardarArchivo( Alumno, 2 ); 
-    leerArchivo()
+    //leerArchivo()
     return 0;
 }
 
@@ -119,7 +119,7 @@ void leerArchivo()
 
 void leerCSV(){
 
-FILE *archivo= fopen ("alumnos.csv", "r");
+FILE *archivo= fopen ("alumno.csv", "r");
 
  if (archivo ==NULL)
     {
@@ -130,11 +130,27 @@ FILE *archivo= fopen ("alumnos.csv", "r");
 
 
     Alumno alumno; //aqui voy a colocar los datos leidos del archivo
-    fscanf(archivo,
-        
-            "%49[^;] ; %49[^;] ; %49[^;] ; %d ; %d "
+    
 
-          )  //vamos a empezar a usar patrones de formato
+
+    while (fscanf(archivo,
+        
+            "%49[^;] ; %49[^;] ; %49[^;] ; %d ; %d",
+            alumno.nombre, 
+            alumno.direccion.callePrincipal,
+            alumno.direccion.calleSecundaria,
+            &alumno.direccion.numeroCasa,
+            &alumno.edad
+            
+
+        )==5)
+
+        {
+            printf("%s", alumno.nombre);
+        
+
+        }
+          ;  //vamos a empezar a usar patrones de formato
 
 }
 
