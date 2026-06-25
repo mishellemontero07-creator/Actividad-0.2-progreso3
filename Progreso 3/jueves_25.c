@@ -27,6 +27,8 @@ typedef struct {   //typedef: me permite utilizar el nombre de ese tipo de dato 
 
 void mostrarAlumno(Alumno *a);  //1. Creamos el prototipo de la funcion
 void guardarArchivo(Alumno *a); //Creamos el prototipo del Archivo
+void leerCSV();
+
 
 int main(int argc, char const *argv[])
 {
@@ -70,7 +72,7 @@ void guardarArchivo(Alumno *a){
 
 
 
-    FILE *archivo = fopen("alumnos.csv", "w");  //cambiamos la extension de txt a csv 
+    FILE *archivo = fopen("alumnos.txt", "w");  //cambiamos la extension de txt a csv 
     {
 
        // fprintf(archivo, "Nombre: %s\n" , a[i].nombre ); 
@@ -93,7 +95,7 @@ void guardarArchivo(Alumno *a){
 
 void leerArchivo()
 {
-    FILE *archivo = fopen("alumnos.txt", "r");
+    FILE *archivo = fopen("alumnos.csv", "r");
 
 
     if (archivo ==NULL)
@@ -114,3 +116,25 @@ void leerArchivo()
     fclose(archivo);
 
 }
+
+void leerCSV(){
+
+FILE *archivo= fopen ("alumnos.csv", "r");
+
+ if (archivo ==NULL)
+    {
+        printf("No se puede abrir el archivo");
+        return;
+
+    }
+
+
+    Alumno alumno; //aqui voy a colocar los datos leidos del archivo
+    fscanf(archivo,
+        
+            "%49[^;] ; %49[^;] ; %49[^;] ; %d ; %d "
+
+          )  //vamos a empezar a usar patrones de formato
+
+}
+
