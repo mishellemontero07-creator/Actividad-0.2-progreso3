@@ -22,9 +22,14 @@ int main()
 
     mostrarAlumno(clase);
 
+    //guardarArchivo(clase, 2);
+    //leerCSV();
+
     char nombreBuscado[50];
+
     printf("Ingrese el nombre a buscar: ");
     fgets(nombreBuscado, 50, stdin);
+
     nombreBuscado[strcspn(nombreBuscado, "\n")] = '\0';
 
     buscarAlumno(nombreBuscado);
