@@ -19,6 +19,7 @@ typedef struct{
 void mostrarAlumno(Alumno *a);
 void guardarArchivo(Alumno *a, int n);
 void leerCSV();
+void buscarAlumno(char *cadenaBuscada);
 
 int main()
 {
@@ -38,9 +39,15 @@ int main()
 
     mostrarAlumno(clase);
 
-    guardarArchivo(clase, 2);
+    //guardarArchivo(clase, 2);
 
-    leerCSV();
+    //leerCSV();
+
+    char nombreBuscado [50];
+    printf("Ingrese el nombre a buscar: ");
+    fgets(nombreBuscado, 50, stdin);
+    nombreBuscado[strcspn(nombreBuscado,"\n")] ='\0'; 
+    buscarAlumno(nombreBuscado);
 
     return 0;
 }
@@ -113,3 +120,45 @@ void leerCSV()
 
     fclose(archivo);
 }
+
+
+void buscarAlumno(char *cadenaBuscada)
+{
+  
+FILE *archivo = fopen("alumnos.csv", "r");
+
+    if (archivo == NULL)
+    {
+        printf("No se puede abrir el archivo\n");
+        return;
+    }
+
+    Alumno alumno;
+
+    while (fscanf(archivo,
+                  " %49[^;];%49[^;];%49[^;];%d;%d",
+                  alumno.nombre,
+                  alumno.direccion.callePrincipal,
+                  alumno.direccion.calleSecundaria,
+                  &alumno.direccion.numeroCasa,
+                  &alumno.edad) == 5)
+    {
+
+        if(strcmp(alumno.nombre,cadenaBuscada )==0 )
+            {
+             printf("\nNombre: %s\n", alumno.nombre);
+            printf("Edad: %d\n", alumno.edad);
+            printf("Direccion: %s %d %s\n",
+               alumno.direccion.callePrincipal,
+               alumno.direccion.numeroCasa,
+               alumno.direccion.calleSecundaria);
+                
+            
+            }
+    }
+
+    fclose(archivo);
+}
+
+
+
