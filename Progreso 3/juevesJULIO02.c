@@ -4,19 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Direccion{
-    char callePrincipal[50];
-    char calleSecundaria[50];
-    int numeroCasa;
-};
+#include "alumno.h"
+#include "archivo.h"
 
-typedef struct{
-    char nombre[50];
-    struct Direccion direccion;
-    int edad;
-} Alumno;
-
-void mostrarAlumno(Alumno *a);
 void guardarArchivo(Alumno *a, int n);
 void leerCSV();
 void buscarAlumno(char *cadenaBuscada);
