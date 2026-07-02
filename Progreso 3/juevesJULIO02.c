@@ -10,7 +10,7 @@ int main()
 
     strcpy(clase[0].nombre, "JUAN");
     strcpy(clase[0].direccion.callePrincipal, "San Carlos");
-    strcpy(clase[0].direccion.calleSecundaria, "Huachi");
+    strcpy(clase[0].direccion.calleSecundaria, "Manabi");
     clase[0].direccion.numeroCasa = 123;
     clase[0].edad = 20;
 
