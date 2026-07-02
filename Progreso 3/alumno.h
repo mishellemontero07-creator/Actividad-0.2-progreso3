@@ -20,4 +20,4 @@ typedef struct{
 // Función para mostrar alumnos
 void mostrarAlumno(Alumno *a);
 
-#endi
+#endif
