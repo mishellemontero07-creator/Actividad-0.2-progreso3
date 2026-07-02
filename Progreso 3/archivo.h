@@ -10,6 +10,6 @@ void guardarArchivo(Alumno *a, int n);
 void leerCSV();
 
 // Buscar alumno por nombre
-void buscarAlumno(char *cadenaBuscada);
+void buscarAlumno(char *cadenaBuscada)
 
 #endif
