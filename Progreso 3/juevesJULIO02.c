@@ -1,15 +1,8 @@
-//   25/06/2026
-// Tema: Manejo de archivos usando comas
-
 #include <stdio.h>
 #include <string.h>
 
 #include "alumno.h"
 #include "archivo.h"
-
-void guardarArchivo(Alumno *a, int n);
-void leerCSV();
-void buscarAlumno(char *cadenaBuscada);
 
 int main()
 {
@@ -29,14 +22,11 @@ int main()
 
     mostrarAlumno(clase);
 
-    //guardarArchivo(clase, 2);
-
-    //leerCSV();
-
-    char nombreBuscado [50];
+    char nombreBuscado[50];
     printf("Ingrese el nombre a buscar: ");
     fgets(nombreBuscado, 50, stdin);
-    nombreBuscado[strcspn(nombreBuscado,"\n")] ='\0'; 
+    nombreBuscado[strcspn(nombreBuscado, "\n")] = '\0';
+
     buscarAlumno(nombreBuscado);
 
     return 0;
